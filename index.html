@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D Canada Map</title>
+    <script src="node_modules/cesium/Build/Cesium/Cesium.js"></script>
+    <link href="node_modules/cesium/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <style>
+        #cesiumContainer {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="cesiumContainer"></div>
+    <script>
+        const viewer = new Cesium.Viewer('cesiumContainer', {
+            terrainProvider: Cesium.createWorldTerrain()
+        });
+
+        // 设置相机视图为加拿大
+        viewer.camera.setView({
+            destination: Cesium.Cartesian3.fromDegrees(-106.3468, 56.1304, 3000000)
+        });
+
+        // 标记一些地点
+        viewer.entities.add({
+            name: 'Ottawa',
+            position: Cesium.Cartesian3.fromDegrees(-75.6910, 45.4215),
+            point: {
+                pixelSize: 10,
+                color: Cesium.Color.RED
+            }
+        });
+
+        viewer.entities.add({
+            name: 'Vancouver',
+            position: Cesium.Cartesian3.fromDegrees(-123.1207, 49.2827),
+            point: {
+                pixelSize: 10,
+                color: Cesium.Color.GREEN
+            }
+        });
+
+        viewer.entities.add({
+            name: 'Toronto',
+            position: Cesium.Cartesian3.fromDegrees(-79.347015, 43.65107),
+            point: {
+                pixelSize: 10,
+                color: Cesium.Color.BLUE
+            }
+        });
+
+        viewer.entities.add({
+            name: 'Montreal',
+            position: Cesium.Cartesian3.fromDegrees(-73.5673, 45.5017),
+            point: {
+                pixelSize: 10,
+                color: Cesium.Color.YELLOW
+            }
+        });
+
+        viewer.entities.add({
+            name: 'Calgary',
+            position: Cesium.Cartesian3.fromDegrees(-114.0719, 51.0447),
+            point: {
+                pixelSize: 10,
+                color: Cesium.Color.CYAN
+            }
+        });
+
+        viewer.entities.add({
+            name: 'Edmonton',
+            position: Cesium.Cartesian3.fromDegrees(-113.4909, 53.5461),
+            point: {
+                pixelSize: 10,
+                color: Cesium.Color.MAGENTA
+            }
+        });
+
+        viewer.entities.add({
+            name: 'Quebec City',
+            position: Cesium.Cartesian3.fromDegrees(-71.2082, 46.8139),
+            point: {
+                pixelSize: 10,
+                color: Cesium.Color.ORANGE
+            }
+        });
+
+        viewer.entities.add({
+            name: 'Winnipeg',
+            position: Cesium.Cartesian3.fromDegrees(-97.1384, 49.8951),
+            point: {
+                pixelSize: 10,
+                color: Cesium.Color.PURPLE
+            }
+        });
+    </script>
+</body>
+</html>
